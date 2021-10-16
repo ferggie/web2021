@@ -1,0 +1,64 @@
+  <section id="tabla-categorias" class="padded">
+    <div class="container">
+      <h2>Tabla Categorías</h2>
+  
+      <p>
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+          aria-expanded="false" aria-controls="collapseExample">
+          Nueva categoria
+        </button>
+      </p>
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+  
+          <form ngNativeValidate [formGroup]="categoriasAgregarForm"
+          (ngSubmit)="agregarCategoria(categoriasAgregarForm.value)">
+            <div class="mb-3">
+              <input type="text" class="form-control" placeholder="Nombre" 
+              formControlName="name"
+              required minlenght = "2">
+            </div>
+            <div class="mb-3">
+              <input type="text" class="form-control" placeholder="Descripcion"
+              formControlName="description"
+              required minlenght = "5">
+            </div>
+            <div class="mb-3">
+              <input type="text" class="form-control" placeholder="Color"
+              formControlName="color"
+              required minlenght = "5">
+            </div>
+  
+            <div class="mb-3">
+              <button class="btn btn-primary" type="submit" data-bs-toggle="collapse" data-bs-target="#collapseExample">
+                Guardar </button>
+              <button class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample">
+                Cancelar </button>
+            </div>
+          </form>
+  
+        </div>
+      </div>
+  
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="text-center">Cod</th>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Color</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let itemCategoria of listaCategorias">
+            <td class="text-center">{{itemCategoria.id}}</td>
+            <td>{{itemCategoria.name}}</td>
+            <td>{{itemCategoria.description}}</td>
+            <td>{{itemCategoria.color}}</td>
+
+          </tr>
+        </tbody>
+      </table>
+  
+    </div>
+  </section>

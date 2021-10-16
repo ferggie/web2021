@@ -1,0 +1,38 @@
+<section id="empleado" class="padded">
+  <div class="container">
+    <h2>Empleados</h2>
+    <div class="row">
+      <div class="col-md-8">
+        <table class="table">
+          <thead>
+            <tr>
+            <th>Id</th>
+            <th>Email</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+
+          </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor = "let itemEmpleado of listaEmpleados"
+            (click) = "seleccionar(itemEmpleado)"
+            [class.table-info]="itemEmpleado === empleadoElegido">
+            
+            <td>{{itemEmpleado.id}}</td>
+            <td>{{itemEmpleado.email}}</td>
+            <td>{{itemEmpleado.first_name}}</td>
+            <td>{{itemEmpleado.last_name}}</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+      <div class="col-md-4" *ngIf = "empleadoElegido">
+        <img src={{empleadoElegido.avatar}} alt="" class="img-fluid">
+        <h4>{{empleadoElegido.first_name}} {{empleadoElegido.last_name}}</h4>
+        <p>{{empleadoElegido.email}}</p>
+      </div>
+    </div>
+  </div>
+</section> 
+

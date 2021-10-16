@@ -1,0 +1,25 @@
+<section id="tienda" class="padded">
+    <div class="container">
+      <h2>Tienda</h2>
+      <div class="row">
+        <div class="col-md-3">
+          <ul class="list-group">
+            <li class="list-group-item" *ngFor="let itemCategoria of listaCategorias"
+            (click)="seleccionar(itemCategoria)"
+            [class.active]="itemCategoria === categoriaElegida">
+                  
+              <h5>{{itemCategoria.name}}</h5>
+              <small>{{itemCategoria.description}}</small>        
+            </li>
+          </ul>  
+        </div>
+        <div class="col-md-9" *ngIf="categoriaElegida">
+          <h3>{{categoriaElegida.name}}</h3>
+          <p>{{categoriaElegida.description}}</p>
+          <app-productos [categoriaX] = "categoriaElegida"></app-productos>
+
+
+        </div>
+      </div>
+    </div>
+  </section>
